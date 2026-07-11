@@ -588,4 +588,60 @@ function evidenceTypeText(type: string): string {
     &:hover { transform: translateX(4px); }
   }
 }
+
+/* ===== 移动端适配 ===== */
+@media (max-width: 768px) {
+  .detail-header {
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .header-left {
+    h1 { font-size: 20px; }
+  }
+
+  .header-right {
+    width: 100%;
+  }
+
+  .meta-item {
+    flex-wrap: wrap;
+  }
+
+  .suspects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-section {
+    padding: 16px;
+    h2 { font-size: 14px; }
+  }
+
+  .case-id-line {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .case-status-bar {
+    width: 100%;
+    min-height: 3px;
+    height: 3px;
+  }
+
+  .detail-section {
+    padding: 12px;
+  }
+
+  .evidence-item {
+    padding: 10px 12px;
+  }
+}
 </style>

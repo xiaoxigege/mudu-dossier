@@ -356,4 +356,76 @@ function typeText(type: string): string {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+/* ===== 移动端适配 ===== */
+@media (max-width: 768px) {
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+
+    .el-select {
+      width: 100%;
+    }
+  }
+
+  .type-legend {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .timeline {
+    padding-left: 24px;
+
+    &::before {
+      left: 7px;
+    }
+  }
+
+  .timeline-line {
+    left: -24px;
+    width: 18px;
+  }
+
+  .timeline-dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .timeline-card {
+    padding: 12px 14px;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  .event-title {
+    font-size: 15px;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .page-header h1 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-card {
+    padding: 10px 12px;
+  }
+
+  .event-desc {
+    font-size: 12px;
+  }
+
+  .card-header {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
 </style>

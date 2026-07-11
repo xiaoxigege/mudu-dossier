@@ -344,4 +344,44 @@ function priorityText(priority: Case['priority']): string {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+/* ===== 移动端适配 ===== */
+@media (max-width: 768px) {
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .search-input {
+    min-width: 100%;
+  }
+
+  .filter-group {
+    width: 100%;
+    .el-select { width: 100%; flex: 1; }
+  }
+
+  .cases-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header h1 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .case-card-body {
+    padding: 12px 14px;
+  }
+
+  .case-name {
+    font-size: 15px;
+  }
+
+  .case-tags {
+    gap: 4px;
+  }
+}
 </style>

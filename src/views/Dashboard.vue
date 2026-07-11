@@ -441,4 +441,63 @@ function statusText(status: Case['status']): string {
   color: $text-muted;
   flex-shrink: 0;
 }
+
+/* ===== 移动端适配 ===== */
+@media (max-width: 768px) {
+  .stat-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 14px;
+    .stat-number { font-size: 28px; }
+  }
+
+  .cases-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-item {
+    padding: 10px 14px;
+    &:hover { padding-left: 16px; }
+  }
+
+  .activity-desc {
+    white-space: normal;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .activity-date {
+    font-size: 11px;
+  }
+
+  .page-header h1 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .stat-card {
+    padding: 12px;
+    .stat-number { font-size: 24px; }
+    .stat-label { font-size: 12px; }
+  }
+
+  .case-card-body {
+    padding: 12px;
+  }
+
+  .case-name {
+    font-size: 15px;
+  }
+}
 </style>

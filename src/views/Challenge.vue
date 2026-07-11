@@ -625,4 +625,128 @@ function typeText(type: string): string {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+/* ===== 移动端适配 ===== */
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 20px;
+  }
+
+  .step-card {
+    padding: 16px;
+  }
+
+  .step-title {
+    font-size: 18px;
+  }
+
+  .tf-buttons {
+    gap: 10px;
+  }
+
+  .tf-btn {
+    padding: 14px;
+    .tf-icon { font-size: 22px; }
+  }
+
+  .connect-board {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .connect-left, .connect-right {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .connect-item {
+    flex: 1;
+    min-width: calc(50% - 6px);
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .connect-lines {
+    flex-direction: row;
+    flex: 0;
+    padding-top: 0;
+    gap: 6px;
+  }
+
+  .option-item {
+    padding: 10px 12px;
+    &:hover:not(.correct):not(.wrong):not(.disabled) { transform: none; }
+  }
+
+  .step-question {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .challenge-card {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .card-status-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 15px;
+  }
+
+  .card-name {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .step-card {
+    padding: 12px;
+  }
+
+  .step-title {
+    font-size: 16px;
+  }
+
+  .tf-btn {
+    padding: 12px;
+    font-size: 14px;
+    .tf-icon { font-size: 20px; }
+  }
+
+  .sort-item {
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
+  .sort-text {
+    font-size: 13px;
+  }
+
+  .connect-item {
+    min-width: calc(50% - 4px);
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+
+  .option-id {
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+  }
+
+  .option-text {
+    font-size: 13px;
+  }
+
+  .btn-confirm, .btn-next {
+    width: 100%;
+    text-align: center;
+  }
+
+  .action-row {
+    justify-content: stretch;
+  }
+}
 </style>

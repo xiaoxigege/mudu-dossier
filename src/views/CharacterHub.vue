@@ -114,6 +114,9 @@
         @mousemove="onGraphMouseMove"
         @mouseup="onGraphMouseUp"
         @mouseleave="onGraphMouseUp"
+        @touchstart.passive="onGraphTouchStart"
+        @touchmove.prevent="onGraphTouchMove"
+        @touchend="onGraphMouseUp"
       >
         <svg :viewBox="vb" class="graph-svg" :class="{ grabbing: isPanning }">
           <g>
@@ -270,6 +273,24 @@ function onGraphMouseMove(e: MouseEvent) {
 
 function onGraphMouseUp() {
   isPanning.value = false
+}
+
+function onGraphTouchStart(e: TouchEvent) {
+  if (e.touches.length !== 1) return
+  isPanning.value = true
+  panStart.value = { x: e.touches[0].clientX, y: e.touches[0].clientY }
+}
+
+function onGraphTouchMove(e: TouchEvent) {
+  if (!isPanning.value || e.touches.length !== 1) return
+  const svg = (e.currentTarget as HTMLElement).querySelector('svg')
+  if (!svg) return
+  const rect = svg.getBoundingClientRect()
+  const scaleX = vbW.value / rect.width
+  const scaleY = vbH.value / rect.height
+  vbX.value -= (e.touches[0].clientX - panStart.value.x) * scaleX
+  vbY.value -= (e.touches[0].clientY - panStart.value.y) * scaleY
+  panStart.value = { x: e.touches[0].clientX, y: e.touches[0].clientY }
 }
 
 const roles = [
@@ -649,5 +670,94 @@ function getRelColor(type: string): string {
 .edge-label {
   pointer-events: none;
   font-family: var(--font-mono, monospace);
+}
+
+/* ===== 移动端适配 ===== */
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 20px;
+  }
+
+  .hub-layout {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .char-list-panel {
+    width: 100%;
+    min-width: 100%;
+    max-height: 40vh;
+  }
+
+  .char-detail-panel {
+    min-height: 50vh;
+  }
+
+  .detail-top {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .detail-avatar {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+
+  .detail-info h2 {
+    font-size: 18px;
+  }
+
+  .detail-body {
+    padding: 14px 16px;
+  }
+
+  .graph-svg {
+    height: 350px;
+  }
+
+  .graph-legend {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 14px;
+  }
+
+  .graph-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .graph-zoom-controls {
+    justify-content: flex-end;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .role-filter {
+    gap: 4px;
+    padding: 10px;
+  }
+
+  .role-tag {
+    font-size: 11px;
+    padding: 2px 8px;
+  }
+
+  .char-list-item {
+    padding: 10px 12px;
+  }
+
+  .graph-svg {
+    height: 280px;
+  }
+
+  .view-tabs {
+    width: 100%;
+    .view-tab {
+      flex: 1;
+      text-align: center;
+    }
+  }
 }
 </style>

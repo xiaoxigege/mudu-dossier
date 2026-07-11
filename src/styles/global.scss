@@ -137,3 +137,19 @@ a {
   transform: translateX(-20px);
   opacity: 0;
 }
+
+/* ===== 移动端全局适配 ===== */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    touch-action: manipulation;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .el-select-dropdown {
+    max-width: calc(100vw - 32px);
+  }
+}

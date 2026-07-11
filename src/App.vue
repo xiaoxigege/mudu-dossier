@@ -11,8 +11,16 @@
       </div>
     </div>
 
+    <!-- 移动端汉堡按钮 -->
+    <button class="mobile-menu-btn" :class="{ open: sidebarOpen }" @click="toggleSidebar">
+      <span></span><span></span><span></span>
+    </button>
+
     <div class="app-body-wrap">
-    <aside class="sidebar">
+    <!-- 移动端遮罩 -->
+    <div v-if="sidebarOpen" class="sidebar-overlay" @click="sidebarOpen = false"></div>
+
+    <aside class="sidebar" :class="{ 'mobile-open': sidebarOpen }">
       <div class="sidebar-header">
         <div class="logo">
           <span class="logo-icon">&#9670;</span>
@@ -66,13 +74,39 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, watch, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 import ThemeSwitcher from '@/components/ThemeSwitcher.vue'
 import { useThemeStore } from '@/stores/themeStore'
 
 const route = useRoute()
 const themeStore = useThemeStore()
+
+const sidebarOpen = ref(false)
+const isMobile = ref(false)
+
+function toggleSidebar() {
+  sidebarOpen.value = !sidebarOpen.value
+}
+
+function checkMobile() {
+  isMobile.value = window.innerWidth <= 768
+  if (!isMobile.value) sidebarOpen.value = false
+}
+
+onMounted(() => {
+  checkMobile()
+  window.addEventListener('resize', checkMobile)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', checkMobile)
+})
+
+// 路由切换时关闭移动端侧边栏
+watch(() => route.path, () => {
+  if (isMobile.value) sidebarOpen.value = false
+})
 
 const activeMenu = computed(() => {
   if (route.path.startsWith('/cases')) return '/cases'
@@ -320,5 +354,98 @@ const activeMenu = computed(() => {
 @keyframes mainEnter {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+/* ===== 移动端汉堡按钮 ===== */
+.mobile-menu-btn {
+  display: none;
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1001;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  cursor: pointer;
+  padding: 10px 8px;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+
+  span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 1px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  &.open {
+    span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+}
+
+/* 移动端遮罩 */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  animation: overlayFadeIn 0.3s ease;
+}
+
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== 移动端适配 ===== */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .police-header {
+    padding-left: 56px;
+  }
+
+  .police-title {
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: none;
+
+    &.mobile-open {
+      transform: translateX(0);
+      box-shadow: 4px 0 24px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .main-content {
+    padding: 16px;
+    padding-top: 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 12px;
+    padding-top: 52px;
+  }
 }
 </style>
