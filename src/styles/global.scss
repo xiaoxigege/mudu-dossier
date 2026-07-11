@@ -1,0 +1,139 @@
+// ============================================
+// 全局样式
+// ============================================
+@use './variables.scss' as *;
+@use './themes.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #app {
+  height: 100%;
+  width: 100%;
+  font-family: $font-sans;
+  background-color: $bg-primary;
+  color: $text-primary;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+// 主题装饰层 — 每个主题有独特的视觉元素
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+// 暗色刑侦风 — CRT扫描线 + 红色暗角
+html[data-theme='dark-crime'] body::after,
+html:not([data-theme]) body::after {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 4px
+    ),
+    radial-gradient(ellipse at center, transparent 50%, rgba(218, 54, 55, 0.04) 100%);
+}
+
+// 复古档案风 — 做旧纸张纹理 + 棕色暗角
+html[data-theme='vintage-archive'] body::after {
+  background:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse at center, transparent 40%, rgba(139, 101, 20, 0.08) 100%);
+  background-size: 200px 200px, 100% 100%;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+}
+
+// 警务蓝白风 — 微妙网格纸纹理
+html[data-theme='police-blue'] body::after {
+  background:
+    linear-gradient(rgba(21, 101, 192, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21, 101, 192, 0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+// 暗夜哥特风 — 深紫暗角 + 微光
+html[data-theme='dark-gothic'] body::after {
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(15, 10, 24, 0.4) 100%);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+
+a {
+  color: $accent-blue;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $accent-blue-light;
+  }
+}
+
+::selection {
+  background: var(--selection-bg);
+  color: $text-primary;
+}
+
+.fade-enter-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-leave-active {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.2s ease-in;
+}
+
+.slide-fade-enter-from {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+.slide-fade-leave-to {
+  transform: translateX(-20px);
+  opacity: 0;
+}

@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+*.local
+.env*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temp check files
+build-check.txt
+tsc-check.txt
+git-info.txt
+run-check.ps1
+run-tsc.ps1
+git-push.ps1
+git-status.txt
+commit-msg.txt
+commit-msg-utf8.txt

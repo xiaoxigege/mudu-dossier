@@ -1,0 +1,329 @@
+// ============================================
+// 主题系统 — 4 套主题 CSS 自定义属性
+// 通过 html[data-theme] 切换
+// ============================================
+
+// 1. 暗色刑侦风 (默认)
+html[data-theme='dark-crime'],
+html:not([data-theme]) {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #1c2128;
+  --bg-hover: #1f2937;
+  --bg-card: #161b22;
+
+  --border-color: #30363d;
+  --border-light: #21262d;
+
+  --text-primary: #c9d1d9;
+  --text-secondary: #8b949e;
+  --text-muted: #6e7681;
+
+  --accent-red: #da3637;
+  --accent-red-light: #f85149;
+  --accent-green: #238636;
+  --accent-green-light: #3fb950;
+  --accent-yellow: #d29922;
+  --accent-yellow-light: #e3b341;
+  --accent-blue: #58a6ff;
+  --accent-blue-light: #79c0ff;
+  --accent-purple: #a371f7;
+
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.3), 0 0 0 1px var(--border-color);
+  --shadow-hover: 0 4px 12px rgba(0,0,0,0.4), 0 0 0 1px var(--border-color);
+
+  --noise-opacity: 0.03;
+  --sidebar-bg: #161b22;
+  --sidebar-border: #30363d;
+  --scrollbar-thumb: #30363d;
+  --selection-bg: rgba(218,54,55,0.3);
+
+  --el-bg-color: #0d1117;
+  --el-bg-color-overlay: #161b22;
+  --el-bg-color-page: #0d1117;
+  --el-text-color-primary: #c9d1d9;
+  --el-text-color-regular: #8b949e;
+  --el-text-color-secondary: #6e7681;
+  --el-text-color-placeholder: #6e7681;
+  --el-border-color: #30363d;
+  --el-border-color-light: #21262d;
+  --el-border-color-lighter: #21262d;
+  --el-fill-color-blank: #161b22;
+  --el-fill-color-light: #1c2128;
+  --el-fill-color: #1c2128;
+  --el-color-primary: #58a6ff;
+  --el-color-success: #238636;
+  --el-color-warning: #d29922;
+  --el-color-danger: #da3637;
+  --el-color-error: #da3637;
+  --el-color-info: #6e7681;
+  --el-mask-color: rgba(0,0,0,0.6);
+  --el-menu-bg-color: #161b22;
+  --el-menu-text-color: #8b949e;
+  --el-menu-active-color: #58a6ff;
+  --el-menu-hover-bg-color: #1f2937;
+  --el-card-bg-color: #161b22;
+  --el-input-bg-color: #0d1117;
+  --el-input-border-color: #30363d;
+  --el-input-text-color: #c9d1d9;
+  --el-table-bg-color: #161b22;
+  --el-table-tr-bg-color: #161b22;
+  --el-table-header-bg-color: #1c2128;
+  --el-table-row-hover-bg-color: #1f2937;
+  --el-table-border-color: #30363d;
+  --el-table-text-color: #c9d1d9;
+  --el-table-header-text-color: #8b949e;
+  --el-dialog-bg-color: #161b22;
+
+  // 主题特有装饰
+  --sidebar-deco: linear-gradient(to right, transparent, var(--accent-red), transparent);
+  --sidebar-deco-height: 2px;
+  --card-border-style: solid;
+  --stamp-color: var(--accent-red);
+  --stamp-border: 1px solid var(--accent-red);
+  --stamp-rotate: -2deg;
+  --heading-decoration: none;
+}
+
+// 2. 复古档案风
+html[data-theme='vintage-archive'] {
+  --bg-primary: #f5f0e8;
+  --bg-secondary: #ede6d6;
+  --bg-tertiary: #e5dcc8;
+  --bg-hover: #ddd4be;
+  --bg-card: #ede6d6;
+
+  --border-color: #c4b89a;
+  --border-light: #d4c9ad;
+
+  --text-primary: #3d3424;
+  --text-secondary: #6b5d47;
+  --text-muted: #8c7e68;
+
+  --accent-red: #8b2500;
+  --accent-red-light: #a83210;
+  --accent-green: #2e6b2e;
+  --accent-green-light: #3a8a3a;
+  --accent-yellow: #8b6914;
+  --accent-yellow-light: #a67c1a;
+  --accent-blue: #2c5f8a;
+  --accent-blue-light: #3a7ab5;
+  --accent-purple: #6b4c8a;
+
+  --shadow-card: 0 1px 3px rgba(61,52,36,0.12), 0 0 0 1px var(--border-color);
+  --shadow-hover: 0 4px 12px rgba(61,52,36,0.18), 0 0 0 1px var(--border-color);
+
+  --noise-opacity: 0.06;
+  --sidebar-bg: #e5dcc8;
+  --sidebar-border: #c4b89a;
+  --scrollbar-thumb: #c4b89a;
+  --selection-bg: rgba(139,37,0,0.2);
+
+  --el-bg-color: #f5f0e8;
+  --el-bg-color-overlay: #ede6d6;
+  --el-bg-color-page: #f5f0e8;
+  --el-text-color-primary: #3d3424;
+  --el-text-color-regular: #6b5d47;
+  --el-text-color-secondary: #8c7e68;
+  --el-text-color-placeholder: #8c7e68;
+  --el-border-color: #c4b89a;
+  --el-border-color-light: #d4c9ad;
+  --el-border-color-lighter: #d4c9ad;
+  --el-fill-color-blank: #ede6d6;
+  --el-fill-color-light: #e5dcc8;
+  --el-fill-color: #e5dcc8;
+  --el-color-primary: #2c5f8a;
+  --el-color-success: #2e6b2e;
+  --el-color-warning: #8b6914;
+  --el-color-danger: #8b2500;
+  --el-color-error: #8b2500;
+  --el-color-info: #8c7e68;
+  --el-mask-color: rgba(61,52,36,0.4);
+  --el-menu-bg-color: #e5dcc8;
+  --el-menu-text-color: #6b5d47;
+  --el-menu-active-color: #2c5f8a;
+  --el-menu-hover-bg-color: #ddd4be;
+  --el-card-bg-color: #ede6d6;
+  --el-input-bg-color: #f5f0e8;
+  --el-input-border-color: #c4b89a;
+  --el-input-text-color: #3d3424;
+  --el-table-bg-color: #ede6d6;
+  --el-table-tr-bg-color: #ede6d6;
+  --el-table-header-bg-color: #e5dcc8;
+  --el-table-row-hover-bg-color: #ddd4be;
+  --el-table-border-color: #c4b89a;
+  --el-table-text-color: #3d3424;
+  --el-table-header-text-color: #6b5d47;
+  --el-dialog-bg-color: #ede6d6;
+
+  // 复古档案装饰
+  --sidebar-deco: linear-gradient(to right, transparent, var(--accent-yellow), transparent);
+  --sidebar-deco-height: 1px;
+  --card-border-style: solid;
+  --stamp-color: #8b2500;
+  --stamp-border: 2px solid #8b2500;
+  --stamp-rotate: -5deg;
+  --heading-decoration: none;
+}
+
+// 3. 警务蓝白风
+html[data-theme='police-blue'] {
+  --bg-primary: #eef2f7;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #e4eaf1;
+  --bg-hover: #d8e0ea;
+  --bg-card: #ffffff;
+
+  --border-color: #c8d1dc;
+  --border-light: #dce3eb;
+
+  --text-primary: #1a2b42;
+  --text-secondary: #4a6180;
+  --text-muted: #7a8fa6;
+
+  --accent-red: #c62828;
+  --accent-red-light: #d32f2f;
+  --accent-green: #2e7d32;
+  --accent-green-light: #43a047;
+  --accent-yellow: #e65100;
+  --accent-yellow-light: #f57c00;
+  --accent-blue: #0d47a1;
+  --accent-blue-light: #1565c0;
+  --accent-purple: #4a148c;
+
+  --shadow-card: 0 1px 3px rgba(26,43,66,0.08), 0 0 0 1px var(--border-color);
+  --shadow-hover: 0 4px 12px rgba(26,43,66,0.12), 0 0 0 1px var(--border-color);
+
+  --noise-opacity: 0;
+  --sidebar-bg: #0d2137;
+  --sidebar-border: #091a2a;
+  --scrollbar-thumb: #c8d1dc;
+  --selection-bg: rgba(13,71,161,0.2);
+
+  --el-bg-color: #eef2f7;
+  --el-bg-color-overlay: #ffffff;
+  --el-bg-color-page: #eef2f7;
+  --el-text-color-primary: #1a2b42;
+  --el-text-color-regular: #4a6180;
+  --el-text-color-secondary: #7a8fa6;
+  --el-text-color-placeholder: #7a8fa6;
+  --el-border-color: #c8d1dc;
+  --el-border-color-light: #dce3eb;
+  --el-border-color-lighter: #dce3eb;
+  --el-fill-color-blank: #ffffff;
+  --el-fill-color-light: #e4eaf1;
+  --el-fill-color: #e4eaf1;
+  --el-color-primary: #0d47a1;
+  --el-color-success: #2e7d32;
+  --el-color-warning: #e65100;
+  --el-color-danger: #c62828;
+  --el-color-error: #c62828;
+  --el-color-info: #7a8fa6;
+  --el-mask-color: rgba(26,43,66,0.4);
+  --el-menu-bg-color: #0d2137;
+  --el-menu-text-color: #8aa4c0;
+  --el-menu-active-color: #64b5f6;
+  --el-menu-hover-bg-color: #163554;
+  --el-card-bg-color: #ffffff;
+  --el-input-bg-color: #ffffff;
+  --el-input-border-color: #c8d1dc;
+  --el-input-text-color: #1a2b42;
+  --el-table-bg-color: #ffffff;
+  --el-table-tr-bg-color: #ffffff;
+  --el-table-header-bg-color: #e4eaf1;
+  --el-table-row-hover-bg-color: #d8e0ea;
+  --el-table-border-color: #c8d1dc;
+  --el-table-text-color: #1a2b42;
+  --el-table-header-text-color: #4a6180;
+  --el-dialog-bg-color: #ffffff;
+
+  // 警务系统装饰
+  --sidebar-deco: linear-gradient(to right, transparent, #c5a44e, transparent);
+  --sidebar-deco-height: 3px;
+  --card-border-style: solid;
+  --stamp-color: #0d47a1;
+  --stamp-border: 2px solid #0d47a1;
+  --stamp-rotate: 0deg;
+  --heading-decoration: none;
+}
+
+// 4. 暗夜哥特风
+html[data-theme='dark-gothic'] {
+  --bg-primary: #0f0a18;
+  --bg-secondary: #1a1225;
+  --bg-tertiary: #221830;
+  --bg-hover: #2a1f38;
+  --bg-card: #1a1225;
+
+  --border-color: #3a2d4d;
+  --border-light: #2d2240;
+
+  --text-primary: #d4c8e8;
+  --text-secondary: #9a8bb0;
+  --text-muted: #6e5f85;
+
+  --accent-red: #c41e3a;
+  --accent-red-light: #e02450;
+  --accent-green: #1a8a4a;
+  --accent-green-light: #28a95e;
+  --accent-yellow: #b8860b;
+  --accent-yellow-light: #d4a017;
+  --accent-blue: #7b68ee;
+  --accent-blue-light: #9580ff;
+  --accent-purple: #9b59b6;
+
+  --shadow-card: 0 1px 3px rgba(15,10,24,0.4), 0 0 0 1px var(--border-color);
+  --shadow-hover: 0 4px 16px rgba(155,89,182,0.15), 0 0 0 1px var(--border-color);
+
+  --noise-opacity: 0.04;
+  --sidebar-bg: #1a1225;
+  --sidebar-border: #3a2d4d;
+  --scrollbar-thumb: #3a2d4d;
+  --selection-bg: rgba(196,30,58,0.35);
+
+  --el-bg-color: #0f0a18;
+  --el-bg-color-overlay: #1a1225;
+  --el-bg-color-page: #0f0a18;
+  --el-text-color-primary: #d4c8e8;
+  --el-text-color-regular: #9a8bb0;
+  --el-text-color-secondary: #6e5f85;
+  --el-text-color-placeholder: #6e5f85;
+  --el-border-color: #3a2d4d;
+  --el-border-color-light: #2d2240;
+  --el-border-color-lighter: #2d2240;
+  --el-fill-color-blank: #1a1225;
+  --el-fill-color-light: #221830;
+  --el-fill-color: #221830;
+  --el-color-primary: #7b68ee;
+  --el-color-success: #1a8a4a;
+  --el-color-warning: #b8860b;
+  --el-color-danger: #c41e3a;
+  --el-color-error: #c41e3a;
+  --el-color-info: #6e5f85;
+  --el-mask-color: rgba(15,10,24,0.7);
+  --el-menu-bg-color: #1a1225;
+  --el-menu-text-color: #9a8bb0;
+  --el-menu-active-color: #7b68ee;
+  --el-menu-hover-bg-color: #2a1f38;
+  --el-card-bg-color: #1a1225;
+  --el-input-bg-color: #0f0a18;
+  --el-input-border-color: #3a2d4d;
+  --el-input-text-color: #d4c8e8;
+  --el-table-bg-color: #1a1225;
+  --el-table-tr-bg-color: #1a1225;
+  --el-table-header-bg-color: #221830;
+  --el-table-row-hover-bg-color: #2a1f38;
+  --el-table-border-color: #3a2d4d;
+  --el-table-text-color: #d4c8e8;
+  --el-table-header-text-color: #9a8bb0;
+  --el-dialog-bg-color: #1a1225;
+
+  // 哥特装饰
+  --sidebar-deco: linear-gradient(to right, transparent, var(--accent-purple), var(--accent-red), var(--accent-purple), transparent);
+  --sidebar-deco-height: 2px;
+  --card-border-style: solid;
+  --stamp-color: var(--accent-red);
+  --stamp-border: 1px solid var(--accent-red);
+  --stamp-rotate: -3deg;
+  --heading-decoration: none;
+}
