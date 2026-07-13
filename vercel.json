@@ -1,5 +1,8 @@
 {
+  "redirects": [
+    { "source": "/", "destination": "/modu/", "permanent": false }
+  ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/modu/(.*)", "destination": "/modu/index.html" }
   ]
 }
