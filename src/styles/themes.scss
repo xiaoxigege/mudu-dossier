@@ -168,10 +168,10 @@ html[data-theme='vintage-archive'] {
 
 // 3. 警务蓝白风
 html[data-theme='police-blue'] {
-  --bg-primary: #eef2f7;
+  --bg-primary: #f0f2f5;
   --bg-secondary: #ffffff;
-  --bg-tertiary: #e4eaf1;
-  --bg-hover: #d8e0ea;
+  --bg-tertiary: #e8ecf1;
+  --bg-hover: #dce3eb;
   --bg-card: #ffffff;
 
   --border-color: #c8d1dc;
@@ -191,18 +191,18 @@ html[data-theme='police-blue'] {
   --accent-blue-light: #1565c0;
   --accent-purple: #4a148c;
 
-  --shadow-card: 0 1px 3px rgba(26,43,66,0.08), 0 0 0 1px var(--border-color);
-  --shadow-hover: 0 4px 12px rgba(26,43,66,0.12), 0 0 0 1px var(--border-color);
+  --shadow-card: 0 1px 3px rgba(15,56,117,0.08), 0 0 0 1px var(--border-color);
+  --shadow-hover: 0 4px 12px rgba(15,56,117,0.12), 0 0 0 1px var(--border-color);
 
   --noise-opacity: 0;
-  --sidebar-bg: #0d2137;
-  --sidebar-border: #091a2a;
+  --sidebar-bg: #0d2852;
+  --sidebar-border: #091e3a;
   --scrollbar-thumb: #c8d1dc;
   --selection-bg: rgba(13,71,161,0.2);
 
-  --el-bg-color: #eef2f7;
+  --el-bg-color: #f0f2f5;
   --el-bg-color-overlay: #ffffff;
-  --el-bg-color-page: #eef2f7;
+  --el-bg-color-page: #f0f2f5;
   --el-text-color-primary: #1a2b42;
   --el-text-color-regular: #4a6180;
   --el-text-color-secondary: #7a8fa6;
@@ -211,27 +211,27 @@ html[data-theme='police-blue'] {
   --el-border-color-light: #dce3eb;
   --el-border-color-lighter: #dce3eb;
   --el-fill-color-blank: #ffffff;
-  --el-fill-color-light: #e4eaf1;
-  --el-fill-color: #e4eaf1;
-  --el-color-primary: #0d47a1;
+  --el-fill-color-light: #e8ecf1;
+  --el-fill-color: #e8ecf1;
+  --el-color-primary: #0F3875;
   --el-color-success: #2e7d32;
   --el-color-warning: #e65100;
   --el-color-danger: #c62828;
   --el-color-error: #c62828;
   --el-color-info: #7a8fa6;
   --el-mask-color: rgba(26,43,66,0.4);
-  --el-menu-bg-color: #0d2137;
+  --el-menu-bg-color: #0d2852;
   --el-menu-text-color: #8aa4c0;
   --el-menu-active-color: #64b5f6;
-  --el-menu-hover-bg-color: #163554;
+  --el-menu-hover-bg-color: #163d6a;
   --el-card-bg-color: #ffffff;
   --el-input-bg-color: #ffffff;
   --el-input-border-color: #c8d1dc;
   --el-input-text-color: #1a2b42;
   --el-table-bg-color: #ffffff;
   --el-table-tr-bg-color: #ffffff;
-  --el-table-header-bg-color: #e4eaf1;
-  --el-table-row-hover-bg-color: #d8e0ea;
+  --el-table-header-bg-color: #e8ecf1;
+  --el-table-row-hover-bg-color: #dce3eb;
   --el-table-border-color: #c8d1dc;
   --el-table-text-color: #1a2b42;
   --el-table-header-text-color: #4a6180;
@@ -241,8 +241,8 @@ html[data-theme='police-blue'] {
   --sidebar-deco: linear-gradient(to right, transparent, #c5a44e, transparent);
   --sidebar-deco-height: 3px;
   --card-border-style: solid;
-  --stamp-color: #0d47a1;
-  --stamp-border: 2px solid #0d47a1;
+  --stamp-color: #0F3875;
+  --stamp-border: 2px solid #0F3875;
   --stamp-rotate: 0deg;
   --heading-decoration: none;
 }

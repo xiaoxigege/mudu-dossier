@@ -4,7 +4,7 @@
     <div class="police-header">
       <div class="police-header-left">
         <span class="police-badge">&#9733;</span>
-        <span class="police-title">燕城市公安局案件管理系统</span>
+        <span class="police-title">燕城市公安总局案卷管理系统</span>
       </div>
       <div class="police-header-right">
         <span class="police-user">&#9673; 管理员</span>
@@ -136,7 +136,7 @@ const activeMenu = computed(() => {
   justify-content: space-between;
   height: 48px;
   padding: 0 20px;
-  background: linear-gradient(135deg, #0d2137 0%, #1a3a5c 50%, #0d2137 100%);
+  background: linear-gradient(135deg, #0F3875 0%, #1a4e8a 50%, #0F3875 100%);
   border-bottom: 2px solid #c5a44e;
   color: #e8edf2;
   flex-shrink: 0;
